@@ -1,0 +1,7 @@
+{
+  "name": "Nexus HR - Employee Management System",
+  "description": "A high-performance dashboard for managing employee records, featuring real-time statistics, advanced filtering, and full CRUD capabilities.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
