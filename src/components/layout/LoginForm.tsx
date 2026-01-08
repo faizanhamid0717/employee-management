@@ -1,16 +1,19 @@
-
-import React, { useState } from 'react';
-import { Lock, Mail, User, ArrowRight } from 'lucide-react';
+import React, { useState } from "react";
+import { Lock, Mail, User, ArrowRight } from "lucide-react";
 
 interface LoginFormProps {
   onLogin: (name: string, email: string) => void;
 }
 
+/**
+ * Login Form Component
+ * Handles user authentication
+ */
 const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    password: ''
+    name: "",
+    email: "",
+    password: "",
   });
 
   const [loading, setLoading] = useState(false);
@@ -20,7 +23,10 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
     setLoading(true);
     // Simulate authentication
     setTimeout(() => {
-      onLogin(formData.name || 'Admin User', formData.email || 'admin@nexushr.com');
+      onLogin(
+        formData.name || "Admin User",
+        formData.email || "admin@nexushr.com"
+      );
       setLoading(false);
     }, 800);
   };
@@ -49,7 +55,9 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
                   placeholder="Full Name"
                   className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-xl leading-5 bg-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600 sm:text-sm transition-all"
                   value={formData.name}
-                  onChange={e => setFormData(prev => ({ ...prev, name: e.target.value }))}
+                  onChange={(e) =>
+                    setFormData((prev) => ({ ...prev, name: e.target.value }))
+                  }
                 />
               </div>
 
@@ -63,7 +71,9 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
                   placeholder="Email address"
                   className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-xl leading-5 bg-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600 sm:text-sm transition-all"
                   value={formData.email}
-                  onChange={e => setFormData(prev => ({ ...prev, email: e.target.value }))}
+                  onChange={(e) =>
+                    setFormData((prev) => ({ ...prev, email: e.target.value }))
+                  }
                 />
               </div>
 
@@ -77,14 +87,24 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
                   placeholder="Password"
                   className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-xl leading-5 bg-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600 sm:text-sm transition-all"
                   value={formData.password}
-                  onChange={e => setFormData(prev => ({ ...prev, password: e.target.value }))}
+                  onChange={(e) =>
+                    setFormData((prev) => ({
+                      ...prev,
+                      password: e.target.value,
+                    }))
+                  }
                 />
               </div>
             </div>
 
             <div className="flex items-center justify-end">
               <div className="text-sm">
-                <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">Forgot password?</a>
+                <a
+                  href="#"
+                  className="font-medium text-indigo-600 hover:text-indigo-500"
+                >
+                  Forgot password?
+                </a>
               </div>
             </div>
 
@@ -106,7 +126,13 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
         </div>
 
         <p className="mt-8 text-center text-sm text-gray-500">
-          Don't have an account? <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">Contact IT Support</a>
+          Don't have an account?{" "}
+          <a
+            href="#"
+            className="font-medium text-indigo-600 hover:text-indigo-500"
+          >
+            Contact IT Support
+          </a>
         </p>
       </div>
     </div>

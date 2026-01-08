@@ -1,6 +1,5 @@
-
-import React from 'react';
-import { Plus, Printer, Download } from 'lucide-react';
+import React from "react";
+import { Plus, Printer, Download } from "lucide-react";
 
 interface DashboardHeaderProps {
   onPrint: () => void;
@@ -8,11 +7,21 @@ interface DashboardHeaderProps {
   onExport: () => void;
 }
 
-const DashboardHeader: React.FC<DashboardHeaderProps> = ({ onPrint, onAdd, onExport }) => {
+/**
+ * Dashboard Header Component
+ * Action buttons and title for the dashboard
+ */
+const DashboardHeader: React.FC<DashboardHeaderProps> = ({
+  onPrint,
+  onAdd,
+  onExport,
+}) => {
   return (
     <div className="flex flex-col lg:flex-row lg:items-center justify-between mb-8 space-y-4 lg:space-y-0 no-print">
       <div>
-        <h1 className="text-2xl font-bold text-gray-900">Employee Management</h1>
+        <h1 className="text-2xl font-bold text-gray-900">
+          Employee Management
+        </h1>
         <p className="text-gray-500">Manage your workforce efficiently.</p>
       </div>
       <div className="flex flex-wrap items-center gap-3">

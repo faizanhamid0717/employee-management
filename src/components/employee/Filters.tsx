@@ -1,24 +1,32 @@
-
-import React from 'react';
-import { Search, Filter } from 'lucide-react';
-import { FilterOptions, Gender } from '../types';
+import React from "react";
+import { Search, Filter } from "lucide-react";
+import type { FilterOptions, Gender } from "../../types";
 
 interface FiltersProps {
   filters: FilterOptions;
   setFilters: React.Dispatch<React.SetStateAction<FilterOptions>>;
 }
 
+/**
+ * Filters Component
+ * Search and filter controls for employee list
+ */
 const Filters: React.FC<FiltersProps> = ({ filters, setFilters }) => {
   return (
     <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-200 mb-6 no-print">
       <div className="flex flex-col md:flex-row md:items-center space-y-4 md:space-y-0 md:space-x-4">
         <div className="relative flex-1">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
+          <Search
+            className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+            size={18}
+          />
           <input
             type="text"
             placeholder="Search by name..."
             value={filters.search}
-            onChange={e => setFilters(prev => ({ ...prev, search: e.target.value }))}
+            onChange={(e) =>
+              setFilters((prev) => ({ ...prev, search: e.target.value }))
+            }
             className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none transition-all"
           />
         </div>
@@ -27,7 +35,12 @@ const Filters: React.FC<FiltersProps> = ({ filters, setFilters }) => {
             <Filter size={16} className="text-gray-500" />
             <select
               value={filters.gender}
-              onChange={e => setFilters(prev => ({ ...prev, gender: e.target.value as Gender | 'All' }))}
+              onChange={(e) =>
+                setFilters((prev) => ({
+                  ...prev,
+                  gender: e.target.value as Gender | "All",
+                }))
+              }
               className="px-3 py-2 border border-gray-300 rounded-lg outline-none text-sm bg-white"
             >
               <option value="All">All Genders</option>
@@ -38,7 +51,9 @@ const Filters: React.FC<FiltersProps> = ({ filters, setFilters }) => {
           </div>
           <select
             value={filters.status}
-            onChange={e => setFilters(prev => ({ ...prev, status: e.target.value as any }))}
+            onChange={(e) =>
+              setFilters((prev) => ({ ...prev, status: e.target.value as any }))
+            }
             className="px-3 py-2 border border-gray-300 rounded-lg outline-none text-sm bg-white"
           >
             <option value="All">All Statuses</option>

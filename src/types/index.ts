@@ -1,3 +1,7 @@
+/**
+ * TypeScript Type Definitions
+ * All application types and interfaces
+ */
 
 export type Gender = 'Male' | 'Female' | 'Other';
 
@@ -14,12 +18,13 @@ export interface Employee {
 
 export interface User {
   id: string;
-  email: string;
   name: string;
+  email: string;
 }
 
 export interface FilterOptions {
   search: string;
   gender: Gender | 'All';
-  status: 'Active' | 'Inactive' | 'All';
+  status: 'All' | 'Active' | 'Inactive';
 }
+

@@ -1,6 +1,11 @@
+/**
+ * Application Constants
+ * Static data and configuration values
+ */
 
-import { Employee } from './types';
+import { Employee } from '../types';
 
+// US States list for dropdown
 export const US_STATES = [
   'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 
   'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 
@@ -12,6 +17,7 @@ export const US_STATES = [
   'Wisconsin', 'Wyoming'
 ];
 
+// Mock employee data for initial setup
 export const MOCK_EMPLOYEES: Employee[] = [
   {
     id: 'EMP001',
@@ -44,3 +50,10 @@ export const MOCK_EMPLOYEES: Employee[] = [
     createdAt: new Date().toISOString()
   }
 ];
+
+// LocalStorage keys
+export const STORAGE_KEYS = {
+  EMPLOYEES: 'nexus_employees',
+  AUTH_USER: 'auth_user'
+} as const;
+
